@@ -1,0 +1,40 @@
+---
+import FeatureItem from "./ui/feature-item.astro";
+import payleven from "../images/features/payleven.png";
+import carreira from "../images/features/carreira.png";
+import done from "../images/features/done.png";
+import colcci from "../images/features/colcci.png";
+import sommer from "../images/features/sommer.png";
+import jorgeBischoff from "../images/features/jorge-bischoff.png";
+
+const features = [
+    {
+        image: payleven,
+        title: "Payleven | FinTech",
+        description: "Worked with marketing, copywriting, and development teams in a fast-growing fintech company. Designed social media assets, SEO-driven landing pages, and developer-friendly web materials. Led a full redesign of the main website using usability testing and A/B testing, contributing to higher conversion rates.",
+    },
+    {
+        image: carreira,
+        title: "Carreira | WebApp for career development",
+        description: "I contributed by designing the visual identity, brand, information architecture, UI, and UX for a career development platform where users can create and manage exercises to set goals and grow professionally. I also conducted usability testing and continue to support the development team with improvements.",
+    },
+    {
+        image: done,
+        title: "Done | WeApp for Design Project Development",
+        description: "I contributed to the UX/UI for D.one, a project management platform for design teams. I participated in designing cross-platform experiences (web, mobile, tablet, Apple Watch), helped with the development of 20+ built-in methodology tools, ran usability testing, and developed intuitive IA, prototypes, and style guides.",
+    },
+    {
+        image: [colcci, sommer, jorgeBischoff],
+        title: "Fashion e-commerce webpages",
+        description: "Contributed to the design and layout of multiple e-commerce platforms, including Colcci, ensuring seasonal collections were showcased effectively. Prepared and optimized product images and collaborated on digital marketing assets to enhance the brand’s online presence and customer experience.",
+    },
+];
+---
+
+<section class="px-4 md:px-16">
+  <ul class="flex flex-col gap-8 md:gap-12">
+    {features.map((feature) => (
+      <FeatureItem {...feature} />
+    ))}
+  </ul>
+</section>

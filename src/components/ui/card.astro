@@ -1,0 +1,15 @@
+---
+import { cn } from "../../utils";
+
+interface Props {
+  wrapperStyles?: string;
+}
+
+const { wrapperStyles, ...props } = Astro.props;
+---
+
+<div class={cn("p-6 pt-0", wrapperStyles)} {...props}>
+    <div class="p-0 w-full">
+        <slot />
+    </div>
+</div>

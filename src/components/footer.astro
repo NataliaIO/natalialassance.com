@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets';
+import natPhoto from '../images/nat-photo.png';
+
+const socialLinks = [
+    {
+      label: "LinkedIn",
+      variant: "outline" as const,
+    },
+    {
+      label: "GitHub",
+      variant: "outline" as const,
+    },
+  ];
+
+---
+
+<footer id="contact-footer" class="w-full bg-transparent pt-16 px-4 md:px-16">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-12">
+
+    <!-- Text + Links -->
+    <div class="flex flex-col gap-6 flex-1 order-1 md:order-1">
+      <h1 class="font-bold text-[#710062] text-[56px] md:text-[48px] leading-[61.6px] tracking-[-1.12px] text-left">
+        I hope to hear from you soon!
+      </h1>
+
+      <p class="font-medium text-[#0000008c] text-2xl md:text-xl leading-[34.8px] tracking-[-0.12px] text-left">
+        Thank you for being here &lt;3
+      </p>
+
+      <!-- Links -->
+      <div class="flex flex-wrap gap-4">
+
+        <button
+          type="button"
+          id="copy-email-btn"
+          class="relative px-4 py-3 rounded-xl bg-[#710062] text-white hover:bg-[#710062]/80 transition"
+        >
+          Copy e-mail
+          <span
+            id="copy-email-msg"
+            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 transition-opacity"
+          >
+            Email copied!
+          </span>
+        </button>
+
+        <a
+          href="https://github.com/nataliaio"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 bg-white text-black shadow-md hover:bg-black hover:text-white transition"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://linkedin.com/in/natalialassance"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 bg-white text-black shadow-md hover:bg-black hover:text-white transition"
+        >
+          LinkedIn
+        </a>
+      </div>
+      
+    </div>
+
+    <!-- Image -->
+    <div class="flex-shrink-0 order-2 md:order-2">
+        
+      <Image
+        src={natPhoto}
+        alt="Natalia Lassance"
+        class="h-[540px] w-auto object-contain"
+      />
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById("copy-email-btn")!;
+  const msg = document.getElementById("copy-email-msg")!;
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    navigator.clipboard.writeText("hi@natalialassance.com").then(() => {
+      msg.classList.add("opacity-100");
+
+      setTimeout(() => {
+        msg.classList.remove("opacity-100");
+      }, 1500);
+    });
+  });
+</script>
+

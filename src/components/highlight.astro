@@ -1,0 +1,49 @@
+---
+import Card from "./ui/card.astro";
+import { Image } from 'astro:assets';
+import fintech from '../images/fintech.jpg';
+import multiplatform from '../images/multiplatform.jpg';
+import ecommerce from '../images/ecommerce.jpg';
+
+
+  const features = [
+    {
+      image: fintech,
+      title: "FinTech",
+      description:
+        "data and conversion-oriented design for happier users and better conversion rates",
+      imageWidth: "w-[360px]",
+    },
+    {
+      image: multiplatform,
+      title: "Multi-platform Web App",
+      description:
+        "From branding to Usability Testing, by far the most complex project I've worked on",
+      imageWidth: "w-[360px]",
+    },
+    {
+      image: ecommerce,
+      title: "e-Commerce",
+      description:
+        "appealing web stores aligned to seasonal collections for a strength online presence",
+      imageWidth: "w-[360px]",
+    },
+  ];
+  ---
+
+<section class="flex flex-col md:flex-row flex-wrap justify-center gap-6 md:gap-8 px-4 sm:px-6 md:px-16 pb-16 md:pb-[120px] w-full">
+  {features.map((feature) => (
+    <Card wrapperStyles="flex flex-col min-w-[280px] md:min-w-[336px] max-w-[360px] items-start gap-6 md:gap-8 rounded-lg bg-transparent shadow-none flex-1">
+      <Image src={feature.image} alt={feature.title} class="w-full h-auto rounded-2xl" />
+      <div class="flex flex-col gap-2">
+        <h3 class="text-xl md:text-2xl font-normal text-black tracking-tight leading-relaxed">
+          {feature.title}
+        </h3>
+        <p class="text-base md:text-lg font-medium text-[#0000008c] tracking-tight leading-relaxed">
+          {feature.description}
+        </p>
+      </div>
+    </Card>
+  ))}
+</section>
+

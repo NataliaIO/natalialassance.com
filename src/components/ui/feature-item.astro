@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import Card from "./card.astro";
+
+interface Props {
+  image: ImageMetadata | ImageMetadata[];
+  title: string;
+  description: string;
+}
+const { image, title, description } = Astro.props;
+
+---
+
+<li class="flex flex-col items-start gap-8 px-4 md:px-16 pb-[120px] relative self-stretch w-full">
+  {Array.isArray(image) ? (
+    <div class="flex flex-col md:flex-row gap-4 w-full">
+      {image.map((img) => (
+        <Image src={img} alt={title} class="w-full md:w-1/3 h-auto rounded-2xl object-cover" />
+      ))}
+    </div>
+  ) : (
+    <Image
+      class="relative self-stretch w-full h-auto rounded-2xl object-cover"
+      alt={title}
+      src={image}
+    />
+  )}
+
+  <Card wrapperStyles="w-full border-0 shadow-none bg-transparent">
+    <div class="gap-4 flex flex-col items-start p-0">
+      <h2 class="text-2xl md:text-4xl font-bold text-[#710062] tracking-tight leading-snug">
+        {title}
+      </h2>
+      <p class="text-base md:text-xl font-medium text-[#444444] tracking-tight leading-relaxed">
+        {description}
+      </p>
+    </div>
+  </Card>
+</li>
